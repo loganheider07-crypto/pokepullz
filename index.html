@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- TAB TITLE -->
+  <!-- WEBSITE TITLE -->
   <title>PokéPullz | Pokémon Whatnot Streams</title>
 
   <!-- GOOGLE FONT -->
@@ -17,7 +17,7 @@
   <style>
 
     /* =========================
-       RESET DEFAULT STYLES
+       RESET DEFAULT SETTINGS
     ========================== */
 
     *{
@@ -28,7 +28,7 @@
     }
 
     /* =========================
-       MAIN WEBSITE COLORS
+       MAIN WEBSITE STYLING
     ========================== */
 
     body{
@@ -51,32 +51,29 @@
 
     nav{
 
-      /* MAKE NAVBAR STAY ON TOP */
-
       position:fixed;
       top:0;
       left:0;
       z-index:1000;
 
-      /* FLEX = SIDE BY SIDE */
+      width:100%;
 
       display:flex;
       justify-content:space-between;
       align-items:center;
 
-      width:100%;
-
       padding:20px 8%;
 
-      /* GLASS EFFECT */
-
       background:rgba(2,10,25,.85);
+
       backdrop-filter:blur(12px);
 
       border-bottom:2px solid rgba(255,170,0,.15);
     }
 
-    /* LOGO */
+    /* =========================
+       LOGO
+    ========================== */
 
     .logo{
       display:flex;
@@ -85,14 +82,6 @@
 
       font-size:2rem;
       font-weight:800;
-
-      color:#ff8c00;
-    }
-
-    /* YELLOW "é" */
-
-    .logo span{
-      color:#ff0000;
     }
 
     /* LOGO IMAGE */
@@ -103,7 +92,21 @@
       border-radius:50%;
     }
 
-    /* NAVIGATION LINKS */
+    /* RED "Poké" */
+
+    .logo .poke{
+      color:#ff3131;
+    }
+
+    /* BLUE "Pullz" */
+
+    .logo .pullz{
+      color:#3b82ff;
+    }
+
+    /* =========================
+       NAV LINKS
+    ========================== */
 
     .nav-links{
       display:flex;
@@ -114,8 +117,6 @@
       transition:.3s;
       font-weight:500;
     }
-
-    /* HOVER EFFECT */
 
     .nav-links a:hover{
       color:#ffd93b;
@@ -135,8 +136,6 @@
 
       padding:140px 8% 80px;
 
-      /* BACKGROUND GRADIENT */
-
       background:
       radial-gradient(circle at top left,#114488 0%,#041226 50%,#01040a 100%);
 
@@ -155,8 +154,6 @@
       margin-bottom:25px;
     }
 
-    /* YELLOW WORD */
-
     .hero-text h1 span{
       color:#ffd93b;
     }
@@ -168,7 +165,7 @@
       margin-bottom:35px;
     }
 
-    /* BUTTON STYLE */
+    /* BUTTON */
 
     .btn{
 
@@ -176,7 +173,7 @@
 
       padding:16px 38px;
 
-      background:linear-gradient(135deg,#ff7b00,#ffb300);
+      background:linear-gradient(135deg,#ff3131,#3b82ff);
 
       border-radius:60px;
 
@@ -184,10 +181,8 @@
 
       transition:.3s;
 
-      box-shadow:0 10px 25px rgba(255,140,0,.3);
+      box-shadow:0 10px 25px rgba(0,0,0,.35);
     }
-
-    /* BUTTON HOVER */
 
     .btn:hover{
       transform:translateY(-5px) scale(1.03);
@@ -206,9 +201,7 @@
 
       border-radius:35px;
 
-      /* DASHED BORDER */
-
-      border:3px dashed #ffb300;
+      border:3px dashed #3b82ff;
 
       display:flex;
       align-items:center;
@@ -224,15 +217,13 @@
       animation:float 4s ease-in-out infinite;
     }
 
-    /* HERO IMAGE */
-
     .hero-box img{
       width:120px;
       margin-bottom:20px;
       border-radius:50%;
     }
 
-    /* FLOATING ANIMATION */
+    /* FLOATING EFFECT */
 
     @keyframes float{
 
@@ -258,7 +249,7 @@
       padding:100px 8%;
     }
 
-    /* SECTION TITLES */
+    /* TITLES */
 
     .section-title{
       text-align:center;
@@ -272,16 +263,13 @@
     ========================== */
 
     .features{
-      display:grid;
 
-      /* AUTO RESPONSIVE GRID */
+      display:grid;
 
       grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 
       gap:35px;
     }
-
-    /* SINGLE CARD */
 
     .feature-card{
 
@@ -296,11 +284,9 @@
       transition:.3s;
     }
 
-    /* CARD HOVER */
-
     .feature-card:hover{
       transform:translateY(-10px);
-      border-color:#ffb300;
+      border-color:#3b82ff;
       box-shadow:0 15px 30px rgba(0,0,0,.35);
     }
 
@@ -321,6 +307,7 @@
       color:#ffd93b;
 
       font-weight:700;
+
       letter-spacing:2px;
     }
 
@@ -342,7 +329,7 @@
     }
 
     /* =========================
-       LIVE STREAM SECTION
+       LIVE SECTION
     ========================== */
 
     .live-section{
@@ -352,13 +339,13 @@
       padding:80px 40px;
 
       background:
-      linear-gradient(135deg,#10284d,#17376b);
+      linear-gradient(135deg,#13294f,#17376b);
 
       border-radius:35px;
 
       text-align:center;
 
-      border:2px solid rgba(255,179,0,.15);
+      border:2px solid rgba(59,130,255,.25);
     }
 
     .live-section h2{
@@ -388,7 +375,7 @@
       gap:25px;
     }
 
-    /* IMAGE BOX */
+    /* IMAGE BOXES */
 
     .gallery-box{
 
@@ -398,7 +385,7 @@
 
       border-radius:25px;
 
-      border:3px dashed #ffb300;
+      border:3px dashed #3b82ff;
 
       display:flex;
       align-items:center;
@@ -410,8 +397,6 @@
 
       transition:.3s;
     }
-
-    /* GALLERY HOVER */
 
     .gallery-box:hover{
       transform:scale(1.03);
@@ -437,13 +422,13 @@
 
       background:#0b1c38;
 
-      border:2px solid rgba(255,179,0,.2);
+      border:2px solid rgba(59,130,255,.25);
 
       transition:.3s;
     }
 
     .social-btn:hover{
-      background:#ff8c00;
+      background:#3b82ff;
       transform:translateY(-5px);
     }
 
@@ -461,11 +446,10 @@
 
       text-align:center;
 
-      border-top:2px solid rgba(255,179,0,.1);
+      border-top:2px solid rgba(59,130,255,.15);
     }
 
     footer h3{
-      color:#ffb300;
       font-size:2rem;
       margin-bottom:15px;
     }
@@ -481,28 +465,20 @@
 
     @media(max-width:950px){
 
-      /* STACK HERO SECTION */
-
       .hero{
         flex-direction:column;
         text-align:center;
       }
 
-      /* SMALLER TITLE */
-
       .hero-text h1{
         font-size:3rem;
       }
-
-      /* HERO IMAGE BOX */
 
       .hero-box{
         width:100%;
         max-width:400px;
         height:400px;
       }
-
-      /* HIDE NAV LINKS ON MOBILE */
 
       .nav-links{
         display:none;
@@ -521,16 +497,18 @@
 
   <nav>
 
-    <!-- LOGO SECTION -->
+    <!-- LOGO -->
 
     <div class="logo">
 
-      <!-- REPLACE WITH YOUR LOGO -->
+      <!-- REPLACE WITH YOUR LOGO IMAGE -->
 
       <img src="YOUR-LOGO.png" alt="PokéPullz Logo">
 
+      <!-- RED + BLUE TEXT -->
+
       <div>
-        Pok<span>é</span>Pullz
+        <span class="poke">Poké</span><span class="pullz">Pullz</span>
       </div>
 
     </div>
@@ -577,7 +555,7 @@
 
       </p>
 
-      <!-- MAIN BUTTON -->
+      <!-- BUTTON -->
 
       <a href="#" class="btn">
 
@@ -591,7 +569,7 @@
 
     <div class="hero-box">
 
-      <!-- REPLACE WITH IMAGE -->
+      <!-- REPLACE THIS IMAGE -->
 
       <img src="YOUR-LOGO.png" alt="Logo">
 
@@ -602,7 +580,7 @@
       <p>
 
         Replace this section with your stream setup,
-        Pokémon cards, or Whatnot stream image.
+        Pokémon cards, or your Whatnot banner.
 
       </p>
 
@@ -630,15 +608,11 @@
 
       <div class="feature-card">
 
-        <!-- IMAGE AREA -->
-
         <div class="feature-image">
 
           IMAGE PLACEHOLDER
 
         </div>
-
-        <!-- TEXT AREA -->
 
         <div class="feature-content">
 
@@ -731,7 +705,7 @@
 
       </p>
 
-      <!-- STREAM BUTTON -->
+      <!-- BUTTON -->
 
       <a href="#" class="btn">
 
@@ -757,42 +731,28 @@
 
     <div class="gallery">
 
-      <!-- IMAGE PLACEHOLDERS -->
-
       <div class="gallery-box">
-
         ADD CARD IMAGE
-
       </div>
 
       <div class="gallery-box">
-
         ADD CARD IMAGE
-
       </div>
 
       <div class="gallery-box">
-
         ADD CARD IMAGE
-
       </div>
 
       <div class="gallery-box">
-
         ADD CARD IMAGE
-
       </div>
 
       <div class="gallery-box">
-
         ADD CARD IMAGE
-
       </div>
 
       <div class="gallery-box">
-
         ADD CARD IMAGE
-
       </div>
 
     </div>
@@ -811,38 +771,28 @@
 
     </h2>
 
-    <!-- SOCIAL BUTTONS -->
-
     <div class="socials">
 
-      <a href="#" class="social-btn">
+      <!-- CHANGE # TO YOUR LINKS -->
 
+      <a href="#" class="social-btn">
         Whatnot
-
       </a>
 
       <a href="#" class="social-btn">
-
         TikTok
-
       </a>
 
       <a href="#" class="social-btn">
-
         Instagram
-
       </a>
 
       <a href="#" class="social-btn">
-
         YouTube
-
       </a>
 
       <a href="#" class="social-btn">
-
         Discord
-
       </a>
 
     </div>
@@ -857,7 +807,7 @@
 
     <h3>
 
-      PokéPullz
+      <span style="color:#ff3131;">Poké</span><span style="color:#3b82ff;">Pullz</span>
 
     </h3>
 
