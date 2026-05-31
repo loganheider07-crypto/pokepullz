@@ -1,1 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+  <!-- WEBSITE SETTINGS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- WEBSITE TITLE -->
+  <title>PokéPullz</title>
+
+  <!-- GOOGLE FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* =========================
+       RESET DEFAULT SETTINGS
+    ========================== */
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    /* =========================
+       MAIN WEBSITE STYLING
+    ========================== */
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#041226;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* REMOVE LINK UNDERLINES */
+
+    a{
+      text-decoration:none;
+      color:white;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================== */
+
+    nav{
+
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:1000;
+
+      width:100%;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      padding:20px 8%;
+
+      background:rgba(2,10,25,.85);
+
+      backdrop-filter:blur(12px);
+
+      border-bottom:2px solid rgba(255,170,0,.15);
+    }
+
+    /* =========================
+       LOGO
+    ========================== */
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:15px;
+
+      font-size:2rem;
+      font-weight:800;
+    }
+
+    /* LOGO IMAGE */
+
+    .logo img{
+      width:55px;
+      height:55px;
+      border-radius:50%;
+    }
+
+    /* RED "Poké" */
+
+    .logo .poke{
+      color:#ff3131;
+    }
+
+    /* BLUE "Pullz" */
+
+    .logo .pullz{
+      color:#3b82ff;
+    }
+
+    /* =========================
+       NAV LINKS
+    ========================== */
+
+    .nav-links{
+      display:flex;
+      gap:30px;
+    }
+
+    .nav-links a{
+      transition:.3s;
+      font-weight:500;
+    }
+
+    .nav-links a:hover{
+      color:#ffd93b;
+    }
+
+    /* =========================
+       HERO SECTION
+    ========================== */
+
+    .hero{
+
+      min-height:100vh;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      padding:140px 8% 80px;
+
+      background:
+      radial-gradient(circle at top left,#114488 0%,#041226 50%,#01040a 100%);
+
+      gap:50px;
+    }
+
+    /* HERO TEXT */
+
+    .hero-text{
+      max-width:650px;
+    }
+
+    .hero-text h1{
+      font-size:4.5rem;
+      line-height:1.1;
+      margin-bottom:25px;
+    }
+
+    .hero-text h1 span{
+      color:#ffd93b;
+    }
+
+    .hero-text p{
+      color:#d6d6d6;
+      font-size:1.15rem;
+      line-height:1.8;
+      margin-bottom:35px;
+    }
+
+    /* BUTTON */
+
+    .btn{
+
+      display:inline-block;
+
+      padding:16px 38px;
+
+      background:linear-gradient(135deg,#ff3131,#3b82ff);
+
+      border-radius:60px;
+
+      font-weight:700;
+
+      transition:.3s;
+
+      box-shadow:0 10px 25px rgba(0,0,0,.35);
+    }
+
+    .btn:hover{
+      transform:translateY(-5px) scale(1.03);
+    }
+
+    /* =========================
+       HERO IMAGE BOX
+    ========================== */
+
+    .hero-box{
+
+      width:450px;
+      height:450px;
+
+      background:#0c1f3d;
+
+      border-radius:35px;
+
+      border:3px dashed #3b82ff;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+
+      text-align:center;
+
+      padding:20px;
+
+      color:#ffd93b;
+
+      animation:float 4s ease-in-out infinite;
+    }
+
+    .hero-box img{
+      width:120px;
+      margin-bottom:20px;
+      border-radius:50%;
+    }
+
+    /* FLOATING EFFECT */
+
+    @keyframes float{
+
+      0%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-15px);
+      }
+
+      100%{
+        transform:translateY(0px);
+      }
+
+    }
+
+    /* =========================
+       SECTION SPACING
+    ========================== */
+
+    section{
+      padding:100px 8%;
+    }
+
+    /* TITLES */
+
+    .section-title{
+      text-align:center;
+      font-size:3rem;
+      margin-bottom:70px;
+      color:#ffd93b;
+    }
+
+    /* =========================
+       FEATURE CARDS
+    ========================== */
+
+    .features{
+
+      display:grid;
+
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+      gap:35px;
+    }
+
+    .feature-card{
+
+      background:#0b1c38;
+
+      border-radius:25px;
+
+      overflow:hidden;
+
+      border:2px solid transparent;
+
+      transition:.3s;
+    }
+
+    .feature-card:hover{
+      transform:translateY(-10px);
+      border-color:#3b82ff;
+      box-shadow:0 15px 30px rgba(0,0,0,.35);
+    }
+
+    /* IMAGE PLACEHOLDER */
+
+    .feature-image{
+
+      height:250px;
+
+      background:#10284d;
+
+      border-bottom:2px solid rgba(255,255,255,.05);
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      color:#ffd93b;
+
+      font-weight:700;
+
+      letter-spacing:2px;
+    }
+
+    /* CARD TEXT */
+
+    .feature-content{
+      padding:25px;
+    }
+
+    .feature-content h3{
+      color:#ffd93b;
+      margin-bottom:15px;
+      font-size:1.4rem;
+    }
+
+    .feature-content p{
+      color:#d0d0d0;
+      line-height:1.7;
+    }
+
+    /* =========================
+       LIVE SECTION
+    ========================== */
+
+    .live-section{
+
+      margin:0 8%;
+
+      padding:80px 40px;
+
+      background:
+      linear-gradient(135deg,#13294f,#17376b);
+
+      border-radius:35px;
+
+      text-align:center;
+
+      border:2px solid rgba(59,130,255,.25);
+    }
+
+    .live-section h2{
+      font-size:3rem;
+      color:#ffd93b;
+      margin-bottom:20px;
+    }
+
+    .live-section p{
+      max-width:750px;
+      margin:auto;
+      color:#e2e2e2;
+      line-height:1.8;
+      margin-bottom:35px;
+    }
+
+    /* =========================
+       GALLERY
+    ========================== */
+
+    .gallery{
+
+      display:grid;
+
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+      gap:25px;
+    }
+
+    /* IMAGE BOXES */
+
+    .gallery-box{
+
+      height:250px;
+
+      background:#0b1c38;
+
+      border-radius:25px;
+
+      border:3px dashed #3b82ff;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      color:#ffd93b;
+
+      font-weight:700;
+
+      transition:.3s;
+    }
+
+    .gallery-box:hover{
+      transform:scale(1.03);
+    }
+
+    /* =========================
+       SOCIAL BUTTONS
+    ========================== */
+
+    .socials{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-top:40px;
+    }
+
+    .social-btn{
+
+      padding:14px 28px;
+
+      border-radius:50px;
+
+      background:#0b1c38;
+
+      border:2px solid rgba(59,130,255,.25);
+
+      transition:.3s;
+    }
+
+    .social-btn:hover{
+      background:#3b82ff;
+      transform:translateY(-5px);
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer{
+
+      margin-top:100px;
+
+      padding:50px 8%;
+
+      background:#01040a;
+
+      text-align:center;
+
+      border-top:2px solid rgba(59,130,255,.15);
+    }
+
+    footer h3{
+      font-size:2rem;
+      margin-bottom:15px;
+    }
+
+    footer p{
+      color:#aaa;
+      line-height:1.8;
+    }
+
+    /* =========================
+       MOBILE RESPONSIVE
+    ========================== */
+
+    @media(max-width:950px){
+
+      .hero{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .hero-text h1{
+        font-size:3rem;
+      }
+
+      .hero-box{
+        width:100%;
+        max-width:400px;
+        height:400px;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <!-- =========================
+       NAVBAR
+  ========================== -->
+
+  <nav>
+
+    <!-- LOGO -->
+
+    <div class="logo">
+
+      <!-- REPLACE WITH YOUR LOGO IMAGE -->
+
+      <img src="YOUR-LOGO.png" alt="PokéPullz Logo">
+
+      <!-- RED + BLUE TEXT -->
+
+      <div>
+        <span class="poke">Poké</span><span class="pullz">Pullz</span>
+      </div>
+
+    </div>
+
+    <!-- NAVIGATION LINKS -->
+
+    <div class="nav-links">
+
+      <a href="#about">About</a>
+
+      <a href="#live">Live</a>
+
+      <a href="#pulls">Pulls</a>
+
+      <a href="#socials">Socials</a>
+
+    </div>
+
+  </nav>
+
+  <!-- =========================
+       HERO SECTION
+  ========================== -->
+
+  <section class="hero">
+
+    <!-- LEFT SIDE TEXT -->
+
+    <div class="hero-text">
+
+      <h1>
+
+        Pokémon Streams <br>
+
+        Built For <span>Collectors</span>
+
+      </h1>
+
+      <p>
+
+        Spin the Wheel Streams
+
+      </p>
+
+      <!-- BUTTON -->
+
+      <a href="#" class="btn">
+
+        WATCH LIVE
+
+      </a>
+
+    </div>
+
+    <!-- RIGHT SIDE IMAGE BOX -->
+
+    <div class="hero-box">
+
+      <!-- REPLACE THIS IMAGE -->
+
+      <img src="YOUR-LOGO.png" alt="Logo">
+
+      <h2>ADD STREAM IMAGE HERE</h2>
+
+      <br>
+
+      <p>
+
+        Replace
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       ABOUT SECTION
+  ========================== -->
+
+  <section id="about">
+
+    <h2 class="section-title">
+
+      What We Stream
+
+    </h2>
+
+    <!-- FEATURE CARDS -->
+
+    <div class="features">
+
+      <!-- CARD 1 -->
+
+      <div class="feature-card">
+
+        <div class="feature-image">
+
+          IMAGE PLACEHOLDER
+
+        </div>
+
+        <div class="feature-content">
+
+          <h3>Live Wheel Spins</h3>
+
+          <p>
+
+            ETB's, Tins, and so much more!
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 2 -->
+
+      <div class="feature-card">
+
+        <div class="feature-image">
+
+          IMAGE PLACEHOLDER
+
+        </div>
+
+        <div class="feature-content">
+
+          <h3>Huge Giveaways</h3>
+
+          <p>
+
+            Free cards, packs, or even spins!
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 3 -->
+
+      <div class="feature-card">
+
+        <div class="feature-image">
+
+          IMAGE PLACEHOLDER
+
+        </div>
+
+        <div class="feature-content">
+
+          <h3>Collector Community</h3>
+
+          <p>
+
+            Hang out with Pokémon collectors,
+            traders, and fans in a fun live community.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       LIVE SECTION
+  ========================== -->
+
+  <section id="live">
+
+    <div class="live-section">
+
+      <h2>
+
+        LIVE WEEKLY ON WHATNOT
+
+      </h2>
+
+      <p>
+
+        Catch huge Pokémon pulls, live auctions,
+        mystery games, vintage cards,
+        and nonstop collector energy every stream.
+
+      </p>
+
+      <!-- BUTTON -->
+
+      <a href="#" class="btn">
+
+        JOIN THE STREAM
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       GALLERY SECTION
+  ========================== -->
+
+  <section id="pulls">
+
+    <h2 class="section-title">
+
+      Latest Pulls
+
+    </h2>
+
+    <div class="gallery">
+
+      <div class="gallery-box">
+        ADD CARD IMAGE
+      </div>
+
+      <div class="gallery-box">
+        ADD CARD IMAGE
+      </div>
+
+      <div class="gallery-box">
+        ADD CARD IMAGE
+      </div>
+
+      <div class="gallery-box">
+        ADD CARD IMAGE
+      </div>
+
+      <div class="gallery-box">
+        ADD CARD IMAGE
+      </div>
+
+      <div class="gallery-box">
+        ADD CARD IMAGE
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       SOCIALS SECTION
+  ========================== -->
+
+  <section id="socials">
+
+    <h2 class="section-title">
+
+      Follow PokéPullz
+
+    </h2>
+
+    <div class="socials">
+
+      <!-- CHANGE # TO YOUR LINKS -->
+
+      <a href="#" class="social-btn">
+        Whatnot
+      </a>
+
+      <a href="#" class="social-btn">
+        TikTok
+      </a>
+
+      <a href="#" class="social-btn">
+        Instagram
+      </a>
+
+      <a href="#" class="social-btn">
+        YouTube
+      </a>
+
+      <!-- UPDATED DISCORD BUTTON -->
+
+      <a href="https://discord.gg/SWz76PpF" target="_blank" class="social-btn">
+        Discord
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <h3>
+
+      <span style="color:#ff3131;">Poké</span><span style="color:#3b82ff;">Pullz</span>
+
+    </h3>
+
+    <p>
+
+      Pokémon Whatnot Streams • Pack Breaks • Giveaways • Collector Community
+
+    </p>
+
+    <br>
+
+    <p>
+
+      © 2026 PokéPullz. All Rights Reserved.
+
+    </p>
+
+  </footer>
+
+</body>
+</html>
