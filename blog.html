@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PokéPullz Blog</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background:#041226;
+      color:white;
+    }
+
+    a{
+      text-decoration:none;
+      color:white;
+    }
+
+    /* TOP BAR */
+    .topbar{
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(2,10,25,.9);
+      border-bottom:2px solid rgba(255,170,0,.15);
+    }
+
+    .logo{
+      font-size:1.6rem;
+      font-weight:800;
+    }
+
+    .logo span:first-child{ color:#ff3131; }
+    .logo span:last-child{ color:#3b82ff; }
+
+    .back-btn{
+      padding:10px 20px;
+      border-radius:30px;
+      background:#3b82ff;
+      font-weight:600;
+      transition:.3s;
+    }
+
+    .back-btn:hover{
+      transform:translateY(-4px);
+    }
+
+    /* BLOG CONTENT */
+    .container{
+      padding:80px 8%;
+    }
+
+    h1{
+      font-size:3rem;
+      color:#ffd93b;
+      margin-bottom:40px;
+    }
+
+    .post{
+      background:#0b1c38;
+      padding:25px;
+      border-radius:20px;
+      margin-bottom:20px;
+      border:2px solid rgba(59,130,255,.2);
+      transition:.3s;
+    }
+
+    .post:hover{
+      transform:translateY(-6px);
+      border-color:#3b82ff;
+    }
+
+    .post h2{
+      color:#ffd93b;
+      margin-bottom:10px;
+    }
+
+    .post p{
+      color:#d0d0d0;
+      line-height:1.7;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+
+    <div class="logo">
+      <span>Poké</span><span>Pullz</span> Blog
+    </div>
+
+    <!-- BACK BUTTON -->
+    <a class="back-btn" href="index.html">Back Home</a>
+
+  </div>
+
+  <!-- BLOG CONTENT -->
+  <div class="container">
+
+    <h1>Latest Updates</h1>
+
+    <div class="post">
+      <h2>🔥 New Stream Setup</h2>
+      <p>We’re upgrading wheel spins, lighting, and adding bigger Pokémon giveaways this week.</p>
+    </div>
+
+    <div class="post">
+      <h2>🎴 Rare Pull Events</h2>
+      <p>Expect vintage packs, evolving skies, and mystery box nights on upcoming streams.</p>
+    </div>
+
+    <div class="post">
+      <h2>📦 Community Growth</h2>
+      <p>Discord is growing fast — more events, giveaways, and community battles coming soon.</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
