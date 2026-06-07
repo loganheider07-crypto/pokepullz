@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PokéPullz Collection Tracker</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#041226;
+    color:white;
+}
+
+nav{
+    background:#010915;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:2rem;
+    font-weight:800;
+}
+
+.poke{color:#ff3131;}
+.pullz{color:#3b82ff;}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:50px 20px;
+}
+
+h1{
+    text-align:center;
+    color:#ffd93b;
+    margin-bottom:40px;
+}
+
+.add-card{
+    background:#0b1c38;
+    padding:25px;
+    border-radius:20px;
+    margin-bottom:30px;
+}
+
+.add-card input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+}
+
+button{
+    background:linear-gradient(135deg,#ff3131,#3b82ff);
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#0b1c38;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+th{
+    background:#17376b;
+    color:#ffd93b;
+}
+
+th,td{
+    padding:15px;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#10284d;
+}
+
+.total-value{
+    margin-top:30px;
+    text-align:center;
+    font-size:2rem;
+    color:#ffd93b;
+    font-weight:700;
+}
+
+.delete-btn{
+    background:#ff3131;
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <span class="poke">Poké</span><span class="pullz">Pullz</span>
+    </div>
+
+    <a href="index.html">← Back Home</a>
+</nav>
+
+<div class="container">
+
+    <h1>Pokémon Collection Tracker</h1>
+
+    <div class="add-card">
+
+        <input type="text" id="cardName" placeholder="Card Name">
+
+        <input type="number" id="quantity" placeholder="Quantity" value="1">
+
+        <input type="number" id="value" placeholder="Value Per Card ($)" step="0.01">
+
+        <button onclick="addCard()">Add Card</button>
+
+    </div>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Card</th>
+                <th>Quantity</th>
+                <th>Value Each</th>
+                <th>Total</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+
+        <tbody id="collectionTable"></tbody>
+
+    </table>
+
+    <div class="total-value">
+        Collection Value: $<span id="grandTotal">0.00</span>
+    </div>
+
+</div>
+
+<script>
+
+let collection = JSON.parse(localStorage.getItem("pokemonCollection")) || [];
+
+function saveCollection(){
+    localStorage.setItem(
+        "pokemonCollection",
+        JSON.stringify(collection)
+    );
+}
+
+function renderCollection(){
+
+    const table = document.getElementById("collectionTable");
+    table.innerHTML = "";
+
+    let grandTotal = 0;
+
+    collection.forEach((card,index)=>{
+
+        const total = card.quantity * card.value;
+        grandTotal += total;
+
+        table.innerHTML += `
+        <tr>
+            <td>${card.name}</td>
+            <td>${card.quantity}</td>
+            <td>$${card.value.toFixed(2)}</td>
+            <td>$${total.toFixed(2)}</td>
+            <td>
+                <button class="delete-btn"
+                onclick="deleteCard(${index})">
+                X
+                </button>
+            </td>
+        </tr>
+        `;
+    });
+
+    document.getElementById("grandTotal").textContent =
+        grandTotal.toFixed(2);
+
+    saveCollection();
+}
+
+function addCard(){
+
+    const name =
+        document.getElementById("cardName").value;
+
+    const quantity =
+        parseInt(document.getElementById("quantity").value);
+
+    const value =
+        parseFloat(document.getElementById("value").value);
+
+    if(!name || isNaN(quantity) || isNaN(value)){
+        alert("Fill out all fields");
+        return;
+    }
+
+    collection.push({
+        name,
+        quantity,
+        value
+    });
+
+    renderCollection();
+
+    document.getElementById("cardName").value="";
+    document.getElementById("quantity").value=1;
+    document.getElementById("value").value="";
+}
+
+function deleteCard(index){
+    collection.splice(index,1);
+    renderCollection();
+}
+
+renderCollection();
+
+</script>
+
+</body>
+</html>
